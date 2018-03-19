@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="dns-prefetch" href="//file.40017.cn">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>DISC性格测试</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css?v=_VERSION_">
+</head>
+<script>
+
+</script>
+<body class="wrap">
+    <div class="header">
+        <img src="./img/logo.png" class="h_logo">
+        <div class="h_tbox">
+            <h2>DISC性格测试</h2>
+            <h4>帮你发现真正的你自己</h4>
+        </div>
+    </div>
+    <div class="name_box">
+        <div>
+            <input type="text" placeholder="填写您的姓名" id="ipt_name">
+        </div>
+        <div>
+            <input type="text" placeholder="填写您的手机号" maxlength=11 id="ipt_phone">
+        </div>
+
+        <button class="test_btn js-submit">开始测试</button>
+    </div>
+    <div class="content hide">
+    </div>
+    <div class="res_box hide">
+        <p class="res_top">
+            <span class="res res_C">C<em></em></span>
+            <span class="res res_D">D<em></em></span>
+        </p>
+        <p class="res_bottom">
+            <span class="res res_S">S<em></em></span>
+            <span class="res res_I">I<em></em></span>
+        </p>
+        <h2>测试完毕</h2>
+    </div>
+        
+    <script type="text/html" id="tmplList">
+        {{for (var i=0;i<data.ql.length;i++) { }}
+        <div class="question unselected">
+            <div class="title">
+                <span class="num_index">{{: i+1}}</span>
+                <span class="num_total">/ {{: data.ql.length}}</span>   
+                你觉得下列哪个选项更适合你?
+            </div>
+            <ul class="c_list js-list">
+                {{for (var j=0;j<data.ql[i].data.length;j++) {
+                    var jData = data.ql[i].data[j];
+                }}
+                <li class="c_item" data-val="{{: jData.val }}">{{: jData.title }} </li>
+                {{ } }}
+            </ul>
+            {{ if(i!=0) { }}
+                <button class="prev_btn">上一题</button>
+            {{ } }}
+        </div>
+        {{ } }}
+    </script>
+    <script type="text/javascript" src="//file.40017.cn/huochepiao/cube/js/common/zepto.min.js"></script>
+    <script src="./dist/js/index.js" type="text/javascript"></script>
+</body>
+
+</html>
